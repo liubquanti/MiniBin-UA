@@ -2,6 +2,7 @@ import psutil
 import requests
 import os
 import subprocess
+import time
 
 def check_process(process_name):
     for proc in psutil.process_iter(['pid', 'name', 'exe']):
@@ -19,26 +20,61 @@ def download_file(url, dest_path):
 
         with open(dest_path, 'w', encoding='utf-16') as f:
             f.write(response.text)
-        print(f"Файл успішно завантажено до {dest_path}.")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Файл успішно завантажено до {dest_path}.")
+        time.sleep(1.0)
     except requests.RequestException as e:
-        print(f"Помилка при завантаженні файлу: {e}")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Помилка при завантаженні файлу: {e}")
+        time.sleep(1.0)
 
 def restart_process(exe_path):
     try:
-        print("Перезапуск процесу...")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Перезапуск процесу...")
+        time.sleep(1.0)
         subprocess.Popen(exe_path)
-        print(f"Процес {exe_path} успішно перезапущено.")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Процес {exe_path} успішно перезапущено.")
+        time.sleep(1.0)
     except Exception as e:
-        print(f"Помилка при перезапуску процесу: {e}")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Помилка при перезапуску процесу: {e}")
+        time.sleep(1.0)
 
 if __name__ == "__main__":
     process_name = "MiniBin.exe"
     exe_path, process = check_process(process_name)
     
     if exe_path:
-        print(f"Процес {process_name} запущено.")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Процес {process_name} запущено.")
+        time.sleep(1.0)
         process_dir = os.path.dirname(exe_path)
-        print(f"Каталог процесу: {process_dir}")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Каталог процесу: {process_dir}")
+        time.sleep(1.0)
         
         ini_file_path = os.path.join(process_dir, 'minibin-language.ini')
         
@@ -46,14 +82,34 @@ if __name__ == "__main__":
         download_file(ini_file_url, ini_file_path)
         
         try:
-            print("Зупинка процесу...")
+            os.system('cls')
+            print(f">>> MiniBin UA")
+            print(f">>> Oleh Liubchenko")
+            print(f"")
+            print(">>> Зупинка процесу...")
+            time.sleep(1.0)
             process.terminate()
             process.wait()
-            print(f"Процес {process_name} успішно зупинено.")
+            os.system('cls')
+            print(f">>> MiniBin UA")
+            print(f">>> Oleh Liubchenko")
+            print(f"")
+            print(f">>> Процес {process_name} успішно зупинено.")
+            time.sleep(1.0)
         except Exception as e:
-            print(f"Помилка при зупинці процесу: {e}")
+            os.system('cls')
+            print(f">>> MiniBin UA")
+            print(f">>> Oleh Liubchenko")
+            print(f"")
+            print(f">>> Помилка при зупинці процесу: {e}")
+            time.sleep(1.0)
         
         restart_process(exe_path)
         
     else:
-        print(f"Процес {process_name} не знайдено.")
+        os.system('cls')
+        print(f">>> MiniBin UA")
+        print(f">>> Oleh Liubchenko")
+        print(f"")
+        print(f">>> Процес {process_name} не знайдено.")
+        time.sleep(1.0)
